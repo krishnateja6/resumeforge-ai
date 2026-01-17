@@ -8,10 +8,17 @@ export async function GET() {
 
   const user = await prisma.user.findUnique({
     where: { email: session.user.email },
-    include: { profile: true },
+    select: { id: true },
   });
 
-  return NextResponse.json({ profile: user?.profile ?? null });
+  if (!user) return NextResponse.json({ experiences: [] });
+
+  const experiences = await prisma.experience.findMany({
+    where: { userId: user.id },
+    orderBy: { createdAt: "desc" },
+  });
+
+  return NextResponse.json({ experiences });
 }
 
 export async function POST(req: Request) {
@@ -29,23 +36,19 @@ export async function POST(req: Request) {
 
   // Convert empty strings to null
   const cleanData = {
-    fullName: body.fullName?.trim() || null,
-    headline: body.headline?.trim() || null,
+    company: body.company?.trim() || body.company,
+    role: body.role?.trim() || body.role,
     location: body.location?.trim() || null,
-    website: body.website?.trim() || null,
-    github: body.github?.trim() || null,
-    linkedin: body.linkedin?.trim() || null,
-    summary: body.summary?.trim() || null,
+    description: body.description?.trim() || null,
+    isCurrent: body.isCurrent ?? false,
   };
 
-  const profile = await prisma.profile.upsert({
-    where: { userId: user.id },
-    update: cleanData,
-    create: {
+  const exp = await prisma.experience.create({
+    data: {
       userId: user.id,
       ...cleanData,
     },
   });
 
-  return NextResponse.json({ profile });
+  return NextResponse.json({ experience: exp });
 }
