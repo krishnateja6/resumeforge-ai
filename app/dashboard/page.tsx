@@ -20,6 +20,11 @@ export default async function DashboardPage() {
         <Link className="px-4 py-2 rounded-md border" href="/dashboard/education">
           Education
         </Link>
+
+        <Link href="/dashboard/projects" className="rounded-md border px-4 py-2">
+  Projects
+</Link>
+
       </div>
 
       <pre className="rounded-md border p-3 text-xs overflow-auto">
