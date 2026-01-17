@@ -20,10 +20,14 @@ export default async function DashboardPage() {
         <Link className="px-4 py-2 rounded-md border" href="/dashboard/education">
           Education
         </Link>
-
         <Link href="/dashboard/projects" className="rounded-md border px-4 py-2">
   Projects
 </Link>
+<Link href="/dashboard/skills" className="rounded-md border px-4 py-2">
+  Skills
+</Link>
+
+
 
       </div>
 
