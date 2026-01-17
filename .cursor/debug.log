@@ -1,0 +1,5 @@
+{"location":"app/dashboard/education/page.tsx:50","message":"Education save initiated","data":{"school":"fghjfgj","schoolLength":7},"timestamp":1768687652311,"sessionId":"debug-session","hypothesisId":"D"}
+{"location":"app/api/education/route.ts:24","message":"POST education entry","data":{"method":"POST"},"timestamp":1768687652330,"sessionId":"debug-session","hypothesisId":"D"}
+{"location":"app/api/education/route.ts:35","message":"POST education body","data":{"school":"fghjfgj","schoolTrimmed":"fghjfgj","emptyStrings":[]},"timestamp":1768687652353,"sessionId":"debug-session","hypothesisId":"D"}
+{"location":"app/api/education/route.ts:53","message":"Education created","data":{"educationId":"cmkiuyn0x0001g6faun1dyd72","school":"fghjfgj"},"timestamp":1768687653201,"sessionId":"debug-session","hypothesisId":"D"}
+{"location":"app/dashboard/education/page.tsx:68","message":"Education save result","data":{"success":true,"status":200},"timestamp":1768687653208,"sessionId":"debug-session","hypothesisId":"D"}
